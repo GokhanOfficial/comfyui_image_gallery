@@ -1,5 +1,7 @@
 # ComfyUI Output Images Gallery
 
+This is bug fixed bersion of original repo.
+
 ## Introduction
 
 ComfyUI Output Images Gallery is a simple web application built with Flask to display a gallery of images. It's designed to showcase a collection of images with thumbnails and provides an easy way for users to view and navigate through the gallery.
@@ -28,7 +30,9 @@ Before you begin, ensure you have the following installed:
 
 To use your own images, symlink your image directory to the project's "static/images/output" directory:
 
-```ln -s /path/to/your/images /path/to/gallery/static/images/output```
+```ln -s /path/to/your/ComfyUI/output /path/to/comfyui_image_gallery/static/images```
+
+This creates a link named "output".
 
 Configure Paths
 You may need to configure the paths for the logo, thumbnails, and original images in the app.py file:
