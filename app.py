@@ -12,6 +12,9 @@ thumbnail_dir = 'static/thumbnails'
 
 @app.route('/')
 def image_gallery():
+    if not os.path.exists(image_dir):
+        os.makedirs(image_dir)
+    
     # Get a list of image files from the specified directory
     image_files = [f for f in os.listdir(image_dir) if f.endswith(('.jpg', '.png', '.jpeg', '.gif'))]
     # Sort the list of image files by last modified date (newest first)
@@ -48,6 +51,8 @@ def image_gallery():
 
 def generate_thumbnails(image_list):
     for image in image_list:
+        if not os.path.exists(thumbnail_dir):
+            os.makedirs(thumbnail_dir)
         thumbnail_path = os.path.join(thumbnail_dir, image)
         if not os.path.exists(thumbnail_path):
             try:
