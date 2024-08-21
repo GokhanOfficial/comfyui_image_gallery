@@ -54,8 +54,9 @@ def generate_thumbnails(image_list):
                 original_image = Image.open(os.path.join(image_dir, image))
                 max_width = 200  # Define your desired thumbnail width
                 max_height = 200  # Define your desired thumbnail height
-                original_image.thumbnail((max_width, max_height), Image.ANTIALIAS)
+                original_image.thumbnail((max_width, max_height), Image.Resampling.LANCZOS)
                 original_image.save(thumbnail_path)
+                print(f"Thumbnail created for {image}")
             except Exception as e:
                 print(f"Error generating thumbnail for {image}: {str(e)}")
 
